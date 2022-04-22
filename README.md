@@ -13,7 +13,12 @@
 | firstna_me_kana    | string | null: false
 | birth_date         | date   | null: false
 | item               | references | null: false, foreign_key: true
-| order              | references | null: false, foreign_key: true
+
+### Association
+
+- has_many :items
+- has_many :orders
+
 
 ## ordersテーブル
 
@@ -22,17 +27,28 @@
 | item             | references | null: false, foreign_key: true
 | user             | references | null: false, foreign_key: true
 
+### Association
+
+- belongs_to :items
+- belongs_to :usres
+- has_one :shipping_addresses
+
+
 ## shipping_addressesテーブル
 
 | Column        | Type       | Options
 | ------------- | ---------- | ------------------------------
-| postal_code   | text       | null: false
+| postal_code   | string     | null: false
 | prefecture_id | integer    | null: false
-| city          | text       | null: false 
-| address       | text       | null: false 
-| building      | text       | null: false 
-| phone_number  | text       | null: false
+| city          | string     | null: false 
+| address       | string     | null: false 
+| building      | string     | NULL
+| phone_number  | string     | null: false
 | order         | references | null: false, foreign_key: true
+
+### Association
+
+- belongs_to :orders
 
 ## itemsテーブル
 
@@ -48,3 +64,8 @@
 | price                  | integer    | null: false
 | user                   | references | null: false, foreign_key: true
 | order                  | references | null: false, foreign_key: true
+
+### Association
+
+- belongs_to :users
+- has_one :orders
