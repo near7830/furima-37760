@@ -12,7 +12,6 @@
 | last_name_kana     | string | null: false
 | firstna_me_kana    | string | null: false
 | birth_date         | date   | null: false
-| item               | references | null: false, foreign_key: true
 
 ### Association
 
@@ -63,7 +62,6 @@
 | scheduled_delivery_id  | integer    | null: false
 | price                  | integer    | null: false
 | user                   | references | null: false, foreign_key: true
-| order                  | references | null: false, foreign_key: true
 
 ### Association
 
