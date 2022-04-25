@@ -4,7 +4,7 @@
 
 | Column             | Type   | Options
 | ------------------ | ------ | ---------------------
-| email              | string | unique: true , null: false, UNI
+| email              | string | unique: true , null: false
 | encrypted_password | string | null: false
 | nickname           | string | null: false
 | last_name          | string | null: false
@@ -41,7 +41,7 @@
 | prefecture_id | integer    | null: false
 | city          | string     | null: false 
 | address       | string     | null: false 
-| building      | string     | NULL
+| building      | string     | 
 | phone_number  | string     | null: false
 | order         | references | null: false, foreign_key: true
 
