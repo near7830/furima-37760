@@ -10,7 +10,7 @@
 | last_name          | string | null: false
 | first_name         | string | null: false
 | last_name_kana     | string | null: false
-| firstna_me_kana    | string | null: false
+| first_name_kana    | string | null: false
 | birth_date         | date   | null: false
 
 ### Association
@@ -28,9 +28,9 @@
 
 ### Association
 
-- belongs_to :items
-- belongs_to :usres
-- has_one :shipping_addresses
+- belongs_to :item
+- belongs_to :user
+- has_one :shipping_address
 
 
 ## shipping_addressesテーブル
@@ -65,5 +65,5 @@
 
 ### Association
 
-- belongs_to :users
-- has_one :orders
+- belongs_to :user
+- has_one :order
