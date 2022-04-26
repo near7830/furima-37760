@@ -66,12 +66,12 @@ RSpec.describe Item, type: :model do
       it '価格が全角数値だと出品できない' do
         @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is invalid. Input half-width characters")
+        expect(@item.errors.full_messages).to include('Price is invalid. Input half-width characters')
       end
       it '価格が数字以外だと出品できない' do
         @item.price = 'あa'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is invalid. Input half-width characters")
+        expect(@item.errors.full_messages).to include('Price is invalid. Input half-width characters')
       end
       it '価格の範囲が、300円未満だと出品できない' do
         @item.price = 100
