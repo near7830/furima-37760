@@ -4,13 +4,11 @@ RSpec.describe User, type: :model do
   before do
     @user = FactoryBot.build(:user)
   end
-  # pending "add some examples to (or delete) #{__FILE__}"
 
   describe 'ユーザー新規登録' do
     context do
       it '全ての情報が存在すれば登録できる' do
-        user = build(:user)
-        expect(user).to be_valid
+        expect(@user).to be_valid
       end
     end
     context do
@@ -47,8 +45,18 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
-      it 'passwordは半角英数字混合でないと登録できない' do
+      it '英字のみのパスワードでは登録できない' do
+        @user.password = 'abcdef'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Password is invalid. Include both letters and numbers')
+      end
+      it '数字のみのパスワードでは登録できない' do
         @user.password = '123456'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Password is invalid. Include both letters and numbers')
+      end
+      it '全角文字を含むパスワードでは登録できない' do
+        @user.password = 'あa1234'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is invalid. Include both letters and numbers')
       end
