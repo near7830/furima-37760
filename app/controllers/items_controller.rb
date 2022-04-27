@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create]
 
   def index
-    @items = Item.includes(:user)
+    #@items = Item.includes(:user)
   end
 
   def new
@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
                                  :scheduled_delivery_id, :price, :user_id, :image).merge(user_id: current_user.id)
   end
 
-  def set_item
-    @item = Item.find(params[:id])
-  end
+  #def set_item
+   # @item = Item.find(params[:id])
+  #end
 end
