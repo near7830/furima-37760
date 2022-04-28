@@ -20,10 +20,10 @@ class Item < ApplicationRecord
     validates :shipping_fee_status_id
     validates :prefecture_id
     validates :scheduled_delivery_id
-    
-    #半角数字以外を入力したときのエラー表示
-    validates :price, numericality: { message: 'is invalid. Input half-width characters' } 
-    
+
+    # 半角数字以外を入力したときのエラー表示
+    validates :price, numericality: { message: 'is invalid. Input half-width characters' }
+
     validates :price,
               numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,
                               message: 'is out of setting range' }
