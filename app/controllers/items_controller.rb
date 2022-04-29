@@ -20,8 +20,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # if unless user_signed_in?
-    # end
   end
 
   private
