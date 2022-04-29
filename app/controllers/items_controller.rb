@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, except: [:index, :new, :create]
-  
+
   def index
     @items = Item.all.order(created_at: :desc)
   end
@@ -20,9 +20,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    #if unless user_signed_in?
-    #end
-
+    # if unless user_signed_in?
+    # end
   end
 
   private
