@@ -1,5 +1,3 @@
-
-   
 require 'rails_helper'
 
 RSpec.describe OrderForm, type: :model do
@@ -70,7 +68,6 @@ RSpec.describe OrderForm, type: :model do
         @order_form.valid?
         expect(@order_form.errors.full_messages).to include('Phone number is too short')
       end
-      
     end
   end
 end

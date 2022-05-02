@@ -12,4 +12,4 @@ FactoryBot.define do
   end
 end
 
-#Faker::Number.decimal_part(digits: 11)
+# Faker::Number.decimal_part(digits: 11)

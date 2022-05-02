@@ -3,7 +3,6 @@ class OrderForm
   attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :city, :address, :building, :phone_number, :token
 
   with_options presence: true do
-
     validates :user_id
     validates :item_id
 
@@ -13,18 +12,15 @@ class OrderForm
     validates :city
     validates :address
 
-     #半角数値以外を入力したときのエラー
+    # 半角数値以外を入力したときのエラー
     validates :phone_number, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input only numbert' }
 
-     #文字数が足りなかったときのエラー表示
-    validates :phone_number,length: {minimum: 10, maximum: 11, message: 'is too short' }
-    
+    # 文字数が足りなかったときのエラー表示
+    validates :phone_number, length: { minimum: 10, maximum: 11, message: 'is too short' }
   end
-    def save
-      order = Order.create(user_id: user_id, item_id: item_id)
-      ShippingAddress.create(order_id: order.id, postal_code: postal_code, prefecture_id: prefecture_id, city: city, address: address, building: building, phone_number: phone_number)
-    end
- 
-    
-
+  def save
+    order = Order.create(user_id: user_id, item_id: item_id)
+    ShippingAddress.create(order_id: order.id, postal_code: postal_code, prefecture_id: prefecture_id, city: city,
+                           address: address, building: building, phone_number: phone_number)
+  end
 end
