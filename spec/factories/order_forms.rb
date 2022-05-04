@@ -9,4 +9,3 @@ FactoryBot.define do
     phone_number { '09036164910' }
   end
 end
-

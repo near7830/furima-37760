@@ -13,10 +13,10 @@ RSpec.describe OrderForm, type: :model do
       it 'すべての値が正しく入力されていれば保存できること' do
         expect(@order_form).to be_valid
       end
-      it '建物情報が空でも保存ができること'do
-         @order_form.building = nil
-         expect(@order_form).to be_valid
-       end
+      it '建物情報が空でも保存ができること' do
+        @order_form.building = nil
+        expect(@order_form).to be_valid
+      end
     end
 
     context '配送先情報の保存ができないとき' do

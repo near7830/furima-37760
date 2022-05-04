@@ -12,14 +12,12 @@ class OrderForm
     validates :city
     validates :address
     validates :phone_number
-
   end
- # 半角数値以外を入力したときのエラー
-    validates :phone_number, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input only numbert' }
+  # 半角数値以外を入力したときのエラー
+  validates :phone_number, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input only numbert' }
 
- # 文字数が足りなかったときのエラー表示
-    validates :phone_number, length: { minimum: 10, maximum: 11, message: 'is too short' }
-
+  # 文字数が足りなかったときのエラー表示
+  validates :phone_number, length: { minimum: 10, maximum: 11, message: 'is too short' }
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
