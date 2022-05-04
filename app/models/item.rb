@@ -3,6 +3,7 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one    :order
+  has_many   :comments, dependent: :destroy
 
   belongs_to_active_hash :category
   belongs_to_active_hash :prefecture
