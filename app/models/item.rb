@@ -3,6 +3,7 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one    :order
+  has_many   :comments, dependent: :destroy
 
   belongs_to_active_hash :category
   belongs_to_active_hash :prefecture
@@ -22,13 +23,11 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :scheduled_delivery_id
     validates :price,
-                    numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,
-                    message: 'is out of setting range' }
-  
+              numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,
+                              message: 'is out of setting range' }
   end
   # 半角数字以外を入力したときのエラー表示
-    validates :price, numericality: { message: 'is invalid. Input half-width characters' }
-    
+  validates :price, numericality: { message: 'is invalid. Input half-width characters' }
 
   with_options numericality: { other_than: 1, message: "can't be blank" } do
     validates :category_id
